@@ -1,31 +1,14 @@
-
-#include<vector>
-#include<string>
-
 #include "./include/tebex/tebex.hpp"
 
 int main() {
     // @doc README.md
-    // - `./examples/example_01.cpp`: A straightforward example of extracting
-    //   various kinds of keyed comments from `./examples/data/input_01.cpp`.
-    std::vector<std::string> ho   = {"@chunk"};
-    std::vector<std::string> hf_h = {"@start"};
-    std::vector<std::string> hf_f = {"@stop"};
-    std::vector<std::string> e    = {"@block"};
+    // - `./examples/example_01.cpp`: Extracts data from
+    //   "examples/data/input_01.cpp" into separate text files by key.
     tebex::extract::extract(
-        "./examples/data/input_01.cpp",
-        "[/][*]",
-        "[*][/]",
-        "//",
-        ho,
-        hf_h,
-        hf_f,
-        e,
+        "examples/data/input_01.cpp",
+        tebex::process::process_comment_blocks_factory(),
         "./tebex_output/",
-        true,
-        false,
-        false,
-        0
+        1
     );
-    return(0);
+    return 0;
 }

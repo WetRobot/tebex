@@ -3,15 +3,18 @@
 
 int main() {
     // @doc README.md
-    // - `./examples/example_03.cpp`: Extract data from
-    //   "examples/data/input_03.md". 
+    // - `./examples/example_04.cpp`: Extract data from both
+    //   "examples/data/input_01.cpp" and "examples/data/input_02.cpp".
     //   Results stay in-memory and are not written to filesystem.
 
+    auto process_fun = tebex::process::process_comment_blocks_factory();
+    auto store_fun = tebex::store::store_map_factory();
     tebex::extract::extract(
-        "examples/data/input_03.md",
-        tebex::process::process_markdown,
-        tebex::store::store_map_factory(),
-        1
+    //    {"examples/data/input_01.cpp", "examples/data/input_02.cpp"},
+       "examples/data/input_02.cpp",
+        process_fun,
+        store_fun,
+        2
     );
 
     tebex::store::store_map_get_type
