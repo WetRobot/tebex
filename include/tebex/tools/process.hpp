@@ -64,7 +64,7 @@ namespace process{
         std::regex
             tag_key_re = std::regex("^[ /*]*@([a-zA-Z_0-9]+)[ ]*(.+)$"),
         std::regex
-            clean_re = std::regex("^[ /*]*(.+)$"),
+            clean_re = std::regex("^[ ]*[/*]+"),
 
         std::vector<std::string>
             start_only_tags = {"@doc"},
@@ -141,7 +141,7 @@ namespace process{
                     out_block_type = "";
                     out_key = "";
                     out_storeable = true;
-                    out_line = utils::re_extract_last_group(line, clean_re);
+                    out_line = std::regex_replace(line, clean_re, "");
                 }
             }
         };
