@@ -100,8 +100,9 @@ namespace extract {
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
         if (verbosity >= 1) {
-            std::cout <<
-                "tebex::extract::extract: preparations done --- "
+            std::cout
+                << "tebex::extract::extract: "
+                << "preparations done --- "
                 << "starting while loop over lines"
                 << std::endl;
             if (verbosity >= 3) {
@@ -122,7 +123,9 @@ namespace extract {
                 utils::print(line_no, "line_no");
                 utils::print(line, "line");
                 if (verbosity >= 3) {
-                    std::cout << "process() will be called next\n";
+                    std::cout 
+                        << "tebex::extract::extract: "
+                        << "process() will be called next\n";
                     utils::press_enter_to_proceed();
                 }
             }
@@ -163,7 +166,9 @@ namespace extract {
                     key_set_start_stop.get(), "key_set_start_stop.get()"
                 );
                 if (verbosity >= 3) {
-                    std::cout << "store() will be called next\n";
+                    std::cout
+                        << "tebex::extract::extract: "
+                        << "store() will be called next\n";
                     utils::press_enter_to_proceed();
                 }
             }
@@ -192,8 +197,9 @@ namespace extract {
         }
 
         if (verbosity >= 1) {
-            std::cout <<
-                "tebex::extract::extract: while loop done --- processed "
+            std::cout
+                << "tebex::extract::extract: "
+                << "while loop done --- processed "
                 << line_no << " lines in total"
                 << std::endl;
         }
