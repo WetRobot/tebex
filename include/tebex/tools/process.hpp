@@ -92,6 +92,16 @@ namespace process{
                 out_line
         ) -> void
         {
+            // @TODO TODO.md
+            // process_comment_blocks_factory: Figure out a way to set
+            // out_storeable = true when using @start-@stop tags even for
+            // lines that are not comment lines. Maybe a separate call
+            // of tebex::extract::extract?
+            // 
+            // Need to also be able to stop when a start-only block's last
+            // comment line has been reached. So, need to keep track of when
+            // in_comment_block (globally?) and to deactivate start-only keys
+            // when in_comment_block turns from true to false.
             bool in_comment_block = false;
             if (__in_multiline_comment_block) {
                 __in_multiline_comment_block = !utils::re_detect(

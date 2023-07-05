@@ -28,11 +28,6 @@ int main() {
         }
     };
 
-    // @TODO
-    // process_comment_blocks_factory: Figure out a way to set
-    // out_storeable = true when using @start-@stop tags even for
-    // lines that are not comment lines. Maybe a separate call
-    // of tebex::extract::extract?
     for (int i = 0; i < file_path_sets.size(); i++) {
         std::vector<std::string>& file_path_set = file_path_sets[i];
         tebex::extract::extract(
