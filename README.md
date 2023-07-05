@@ -43,8 +43,11 @@ you can use this line in `my_file.hpp`:
  ### Single file, arbitrary store callback function `store`
  ```
 
+ @brief
  Extract blocks of text from a file.
+ @param file_path
  Path to file from which to extract documentation.
+ @param process
  Storage method, here an arbitrary callback function.
  Must have arguments
      const std::string&  line,
@@ -52,12 +55,15 @@ you can use this line in `my_file.hpp`:
      std::string&        out_key,
      bool&               out_storeable,
      std::string&        out_line
+ @param store
  Storage method, here an arbitrary callback function.
  Must have arguments
      const std::string& key,
      const std::string& line,
      const int& line_no
+ @param verbosity
  For debugging.
+ @details
  There are three types of blocks of text:
  - "start-stop":
    Those defined by both a starting and stopping line. The starting
@@ -75,10 +81,13 @@ you can use this line in `my_file.hpp`:
  ### Single file, write results into text files in directory `store`
  ```
 
+ @brief
  Extract commented documentation from a single text file.
  Write extracted texts into dir `./tebex_output/` ---
  one file for each key.
+ @param file_path
  Path to file from which to extract documentation.
+ @param process
  Storage method, here an arbitrary callback function.
  Must have arguments
      const std::string&  line,
@@ -86,7 +95,9 @@ you can use this line in `my_file.hpp`:
      std::string&        out_key,
      bool&               out_storeable,
      std::string&        out_line
+ @param store
  Storage method, here a path to an existing directory.
+ @param verbosity
  For debugging.
  ```
 
@@ -94,17 +105,27 @@ you can use this line in `my_file.hpp`:
  ### Multiple files, `store` templated out
  ```
 
+ @brief
  Process multiple files with one function call. It simply loops over
  the texts. `store` is templated.
+ @param file_paths
  One or more file paths to process.
+ @param process
  See documents for functions that process only a single file.
+ @param store
  Templated, see documents for functions that process only a single file.
+ @param verbosity
  For debugging.
  ```
 
  ## Example .cpp scripts
  
  - `./doc/make_readme.cpp`: A tiny c++ programme to populate `README.md`.
+ @TODO
+ process_comment_blocks_factory: Figure out a way to set
+ out_storeable = true when using @start-@stop tags even for
+ lines that are not comment lines. Maybe a separate call
+ of tebex::extract::extract?
  - `./examples/example_01.cpp`: Extracts data from
    "examples/data/input_01.cpp" into separate text files by key.
  - `./examples/example_02.cpp`: Extract data from both

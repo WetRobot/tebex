@@ -4,7 +4,7 @@
 #include "./tools/extract.hpp"
 
 /*
-@doc README.md
+@docstart README.md
 
 # `tebex` --- Text Block EXtractor
 
@@ -29,6 +29,7 @@ you can use this line in `my_file.hpp`:
 #include "./tebex/include/tebex/tebex.hpp"
 ```
 
+@docstop README.md
 */
 
 namespace tebex {
